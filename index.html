@@ -3,11 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Game</title>
+    <title>Charity: Water Typing Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Charity Water Game Prototype</h1>
+    <main class="app">
+        <section id="start-screen" class="panel">
+            <img class="home-logo" src="assets/charity:water_logo.png" alt="charity: water logo">
+            <h1>charity: water Drop Defender</h1>
+            <p>Type words to destroy dirty drops and protect the clean water.</p>
+            <button id="show-setup-btn" class="btn">Start</button>
+        </section>
+
+        <section id="setup-screen" class="panel hidden">
+            <h2>Choose Your Game Settings</h2>
+
+            <div class="option-group">
+                <p class="option-title">Timer</p>
+                <div class="choice-row" id="timer-choices">
+                    <button class="btn choice-btn active" data-time="30">30s</button>
+                    <button class="btn choice-btn" data-time="45">45s</button>
+                    <button class="btn choice-btn" data-time="60">60s</button>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <p class="option-title">Difficulty</p>
+                <div class="choice-row" id="difficulty-choices">
+                    <button class="btn choice-btn active" data-difficulty="easy">Easy</button>
+                    <button class="btn choice-btn" data-difficulty="medium">Medium</button>
+                    <button class="btn choice-btn" data-difficulty="hard">Hard</button>
+                </div>
+            </div>
+
+            <button id="begin-game-btn" class="btn">Begin Game</button>
+        </section>
+
+        <section id="game-screen" class="hidden">
+            <div id="game-area">
+                <div class="cloud">
+                    <img class="cloud-image" src="assets/cloud.png" alt="Cloud">
+                    <div class="cloud-content">
+                        <img class="cloud-logo" src="assets/charity:water_logo.png" alt="charity: water logo">
+                        <div class="cloud-stats">
+                            <span>Time: <span id="time-display">0</span></span>
+                            <span>Score: <span id="score-display">0</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="drops-layer"></div>
+                <div id="jerry-can" aria-label="Jerry can target area">
+                    <img src="assets/jerry_can.png" alt="Jerry can">
+                </div>
+            </div>
+
+            <form id="typing-form" autocomplete="off">
+                <label for="word-input">Type the dirty drop word:</label>
+                <input id="word-input" type="text" placeholder="Type and press Enter" />
+            </form>
+        </section>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
